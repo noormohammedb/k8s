@@ -1,9 +1,12 @@
 ---
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  labels:
+    app: nginx
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: nginx-deployment
@@ -12,7 +15,7 @@ spec:
       labels:
         app: nginx-deployment
     spec:
-      container:
+      containers:
         - name: nginx-deployment
           image: nginx
           ports:
