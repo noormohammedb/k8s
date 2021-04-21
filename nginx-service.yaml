@@ -5,7 +5,7 @@ metadata:
   name: nginx-service
 spec:
   selector:
-    app: nginx-deployement
+    app: nginx
   ports:
     - protocol: TCP
       port: 80
