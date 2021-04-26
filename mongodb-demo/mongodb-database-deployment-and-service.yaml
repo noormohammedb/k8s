@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -30,3 +31,16 @@ spec:
                 secretKeyRef:
                   name: mongo-secret
                   key: dbpass
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-server-service
+spec:
+  selector:
+    app: mongodb
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017
